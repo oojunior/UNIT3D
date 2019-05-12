@@ -15,14 +15,13 @@ class CreateSubtitlesTable extends Migration
     {
         Schema::create('subtitles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('title');
+            $table->string('filename');
             $table->string('language')->index();
+            $table->string('codec')->index();
             $table->integer('downloads')->nullable();
             $table->boolean('verified')->default(0)->index();
             $table->integer('user_id')->index();
-            $table->smallInteger('status')->default(0);
-            $table->dateTime('moderated_at')->nullable();
-            $table->integer('moderated_by')->nullable()->index();
             $table->timestamps();
         });
     }
