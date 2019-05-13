@@ -17,7 +17,8 @@ class CreateSubtitlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('filename');
-            $table->string('language')->index();
+            $table->string('language_id')->index();
+            $table->string('source_id')->index();
             $table->string('codec')->index();
             $table->integer('downloads')->nullable();
             $table->boolean('verified')->default(0)->index();
